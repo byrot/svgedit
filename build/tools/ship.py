@@ -69,8 +69,8 @@ def parseComment(line, line_num, enabled_flags):
   statement = line[start+1:end].strip()
   if statement.startswith('if '):
     if inside_if == True:
-      print 'Fatal Error: Nested {if} found on line ' + str(line_num)
-      print line
+      print('Fatal Error: Nested {if} found on line ' + str(line_num))
+      print(line)
       quit()
 
     # Evaluate whether the expression is true/false.
@@ -87,12 +87,12 @@ def parseComment(line, line_num, enabled_flags):
 
   elif statement == 'else':
     if inside_if == False:
-      print 'Fatal Error: {else} found without {if} on line ' + str(line_num)
-      print line
+      print('Fatal Error: {else} found without {if} on line ' + str(line_num))
+      print(line)
       quit()
     if inside_if == 'else':
-      print 'Fatal Error: Multiple {else} clauses found in the same if on line ' + str(line_num)
-      print line
+      print('Fatal Error: Multiple {else} clauses found in the same if on line ' + str(line_num))
+      print(line)
       quit()
 
     if last_if_true:
@@ -108,8 +108,8 @@ def parseComment(line, line_num, enabled_flags):
 
   elif statement == 'endif':
     if inside_if == False:
-      print 'Fatal Error: {endif} found without {if} on line ' + str(line_num)
-      print line
+      print('Fatal Error: {endif} found without {if} on line ' + str(line_num))
+      print(line)
       quit()
 
     if last_if_true:
@@ -124,7 +124,7 @@ def parseComment(line, line_num, enabled_flags):
 
 def ship(inFileName, enabled_flags):
   # read in HTML file
-  lines = file(inFileName, 'r').readlines()
+  lines = open(inFileName, 'r').readlines()
   out_lines = []
   i = 0
 
@@ -152,4 +152,4 @@ if __name__ == '__main__':
     if options.enabled_flags != None:
       enabled_flags.extend(options.enabled_flags)
     out_file = ship(options.input_html_file, enabled_flags)
-    print out_file
+    print(out_file)
