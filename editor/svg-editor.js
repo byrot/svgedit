@@ -1534,6 +1534,9 @@ TODOS
 					$('#elem_id').val(selectedElement.id);
 					$('#elem_class').val(selectedElement.getAttribute("class"));
 					$('#elem_fmw').val(selectedElement.getAttribute("data-fmw"));
+					$('#elem_fmw_text').val(selectedElement.getAttribute("data-fmw-text"));
+					$('#elem_fmw_fill').val(selectedElement.getAttribute("data-fmw-fill"));
+					$('#elem_fmw_source').val(selectedElement.getAttribute("data-fmw-source"));
 				}
 
 				updateToolButtonState();
@@ -1581,6 +1584,14 @@ TODOS
 
 					if (!is_node && currentMode != 'pathedit') {
 						$('#selected_panel').show();
+
+						// Hide unnecessary FMW options
+						$('.fmw_advanced').hide();
+						// Display advanced FMW options for the selected widget type
+						if (elem.hasAttribute('data-fmw')) {
+							$('.fmw__' + elem.getAttribute('data-fmw')).show();
+						}
+
 						// Elements in this array already have coord fields
 						if (['line', 'circle', 'ellipse'].indexOf(elname) >= 0) {
 							$('#xy_panel').hide();
@@ -3011,7 +3022,8 @@ TODOS
 					return false;
 				}
 
-				if (attr !== 'id' && attr !== 'class' && attr !== 'data-fmw') {
+				// Validate other than textual values
+				if (this.getAttribute('data-type') !== 'string') {
 					if (isNaN(val)) {
 						val = svgCanvas.convertToNum(attr, val);
 					} else if (curConfig.baseUnit !== 'px') {
@@ -3023,6 +3035,12 @@ TODOS
 							val *= unitData[curConfig.baseUnit];
 						}
 					}
+				}
+
+				// display FMW advanced options
+				if (attr === 'data-fmw') {
+					$('.fmw_advanced').hide();
+					$('.fmw__' + val).show();
 				}
 
 				// if the user is changing the id, then de-select the element first

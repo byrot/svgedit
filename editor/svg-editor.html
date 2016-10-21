@@ -209,15 +209,20 @@ by creating the following file and adding by calls to svgEditor.setConfig -->
 			<div class="tool_sep"></div>
 			<label id="idLabel" title="Identify the element">
 				<span>id:</span>
-				<input id="elem_id" class="attr_changer" data-attr="id" size="10" type="text"/>
+				<input id="elem_id" class="attr_changer" data-attr="id" data-type="string" size="10" type="text"/>
 			</label>
 			<label id="classLabel" title="Element class">
 				<span>class:</span>
-				<input id="elem_class" class="attr_changer" data-attr="class" size="10" type="text"/>
+				<input id="elem_class" class="attr_changer" data-attr="class" data-type="string" size="10" type="text"/>
 			</label>
+		</div>
+
+		<div class="tool_sep"></div>
+
+		<div class="toolset">
 			<label id="fmwLabel" title="FM widget type">
 				<span>widget:</span>
-				<select id="elem_fmw" class="attr_changer" data-attr="data-fmw">
+				<select id="elem_fmw" class="attr_changer" data-attr="data-fmw" data-type="string">
 					<option value="">---</option>
 					<option value="button">Button</option>
 					<option value="changelog">Changelog</option>
@@ -231,7 +236,22 @@ by creating the following file and adding by calls to svgEditor.setConfig -->
 					<option value="time">Time</option>
 				</select>
 			</label>
+			<label id="fmwLabel_channel" class="fmw_advanced fmw__button fmw__changelog fmw__numeric fmw__rotor fmw__semaphor fmw__stats fmw__switch fmw__tank" title="Source channel">
+				<span>source:</span>
+				<input id="elem_fmw_source" data-attr="data-fmw-source" data-type="string" size="10" type="text" placeholder="channel" class="attr_changer"/>
+			</label>
+			<label id="fmwLabel_button_text" class="fmw_advanced fmw__button" title="Button label when False,True">
+				<span>text:</span>
+				<input id="elem_fmw_text" data-attr="data-fmw-text" data-type="string" size="10" type="text" placeholder="OFF,ON" pattern="[^,]+,[^,]+" class="attr_changer"/>
+			</label>
+			<label id="fmwLabel_button_fill" class="fmw_advanced fmw__button" title="Button colour when False,True">
+				<span>fill:</span>
+				<input id="elem_fmw_fill" data-attr="data-fmw-fill" data-type="string" size="10" type="text" placeholder="#rgbOFF,#rgbON" pattern="#[0-9a-f]{6},#[0-9a-f]{6}" class="attr_changer"/>
+			</label>
 		</div>
+
+		<div class="tool_sep"></div>
+
 		<div id="tool_angle" title="Change rotation angle" class="toolset">
 			<label>
 				<span id="angleLabel" class="icon_label"></span>
