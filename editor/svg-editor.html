@@ -473,13 +473,51 @@ by creating the following file and adding by calls to svgEditor.setConfig -->
 				<span>source:</span>
 				<input id="elem_fmw_source" data-attr="data-fmw-source" data-type="string" size="10" type="text" placeholder="channel" class="attr_changer"/>
 			</label>
+			<label id="fmwLabel_refresh" class="fmw_advanced fmw__button fmw__changelog fmw__numeric fmw__rotor fmw__semaphor fmw__stats fmw__switch fmw__tank fmw__time" title="Widget refresh interval in seconds">
+				<span>refresh:</span>
+				<input id="elem_fmw_refresh" data-attr="data-fmw-refresh" size="3" type="text" placeholder="0" class="attr_changer spin-button"/>
+			</label>
 			<label id="fmwLabel_button_text" class="fmw_advanced fmw__button" title="Button label when False,True">
 				<span>text:</span>
 				<input id="elem_fmw_text" data-attr="data-fmw-text" data-type="string" size="10" type="text" placeholder="OFF,ON" pattern="[^,]+,[^,]+" class="attr_changer"/>
 			</label>
-			<label id="fmwLabel_button_fill" class="fmw_advanced fmw__button" title="Button colour when False,True">
+			<label id="fmwLabel_button_fill" class="fmw_advanced fmw__button fmw__semaphor" title="Button colour when False,True">
 				<span>fill:</span>
 				<input id="elem_fmw_fill" data-attr="data-fmw-fill" data-type="string" size="10" type="text" placeholder="#rgbOFF,#rgbON" pattern="#[0-9a-f]{6},#[0-9a-f]{6}" class="attr_changer"/>
+			</label>
+			<label id="fmwLabel_tolerance" class="fmw_advanced fmw__changelog" title="Minimal change of value to be displayed">
+				<span>tolerance:</span>
+				<input id="elem_fmw_tolerance" data-attr="data-fmw-tolerance" size="3" type="text" placeholder="0" class="attr_changer spin-button"/>
+			</label>
+			<label id="fmwLabel_image" class="fmw_advanced fmw__image" title="Image identifier">
+				<span>image:</span>
+				<input id="elem_fmw_image" data-attr="data-fmw-image" size="10" data-type="string" type="text" placeholder="picture" class="attr_changer"/>
+			</label>
+			<label id="fmwLabel_precision" class="fmw_advanced fmw__numeric" title="Number precision">
+				<span>precision:</span>
+				<input id="elem_fmw_precision" data-attr="data-fmw-precision" size="3" type="text" placeholder="0" class="attr_changer spin-button"/>
+			</label>
+			<label id="fmwLabel_units" class="fmw_advanced fmw__numeric" title="Measuring units">
+				<span>units:</span>
+				<input id="elem_fmw_units" data-attr="data-fmw-units" size="3" data-type="string" type="text" placeholder="°C" class="attr_changer"/>
+			</label>
+			<label id="fmwLabel_rotor_step" class="fmw_advanced fmw__rotor" title="Angle to be rotated each step">
+				<span>step:</span>
+				<input id="elem_fmw_rotor_step" data-attr="data-fmw-rotor-step" size="3" type="text" placeholder="0" class="attr_changer spin-button"/>
+			</label>
+			<label id="fmwLabel_switch_angle" class="fmw_advanced fmw__switch" title="Angle to be rotated if the source is True">
+				<span>angle:</span>
+				<input id="elem_fmw_switch_angle" data-attr="data-fmw-switch-angle" size="3" type="text" placeholder="0" class="attr_changer spin-button"/>
+			</label>
+			<label id="fmwLabel_switch_center" class="fmw_advanced fmw__switch" title="Center of rotation">
+				<span>around:</span>
+				<select id="elem_fmw_switch_center" data-attr="data-fmw-switch-center" class="attr_changer" data-type="string">
+					<option value="c">center</option>
+					<option value="lt">left top</option>
+					<option value="lb">left bottom</option>
+					<option value="rt">right top</option>
+					<option value="rb">right bottom</option>
+				</select>
 			</label>
 		</div>
 	</div>

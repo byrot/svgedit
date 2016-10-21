@@ -1537,6 +1537,14 @@ TODOS
 					$('#elem_fmw_text').val(selectedElement.getAttribute("data-fmw-text"));
 					$('#elem_fmw_fill').val(selectedElement.getAttribute("data-fmw-fill"));
 					$('#elem_fmw_source').val(selectedElement.getAttribute("data-fmw-source"));
+					$('#elem_fmw_refresh').val(selectedElement.getAttribute("data-fmw-refresh"));
+					$('#elem_fmw_tolerance').val(selectedElement.getAttribute("data-fmw-tolerance"));
+					$('#elem_fmw_image').val(selectedElement.getAttribute("data-fmw-image"));
+					$('#elem_fmw_precision').val(selectedElement.getAttribute("data-fmw-precision"));
+					$('#elem_fmw_units').val(selectedElement.getAttribute("data-fmw-units"));
+					$('#elem_fmw_rotor_step').val(selectedElement.getAttribute("data-fmw-rotor-step"));
+					$('#elem_fmw_switch_angle').val(selectedElement.getAttribute("data-fmw-switch-angle"));
+					$('#elem_fmw_switch_center').val(selectedElement.getAttribute("data-fmw-switch-center"));
 				}
 
 				updateToolButtonState();
@@ -4775,6 +4783,11 @@ TODOS
 			});
 
 			// init SpinButtons
+			$('#elem_fmw_refresh').SpinButton({ min: 0, max: 3600, callback: function(){} });
+			$('#elem_fmw_tolerance').SpinButton({ min: 0, max: 1000, callback: function(){} });
+			$('#elem_fmw_precision').SpinButton({ min: -10, max: 10, callback: function(){} });
+			$('#elem_fmw_rotor_step').SpinButton({ min: -90, max: 90, callback: function(){} });
+			$('#elem_fmw_switch_angle').SpinButton({ min: -180, max: 180, step: 15, callback: function(){} });
 			$('#rect_rx').SpinButton({ min: 0, max: 1000, callback: changeRectRadius });
 			$('#stroke_width').SpinButton({ min: 0, max: 99, smallStep: 0.1, callback: changeStrokeWidth });
 			$('#angle').SpinButton({ min: -180, max: 180, step: 5, callback: changeRotationAngle });
