@@ -1553,8 +1553,8 @@ TODOS
 
 				var is_node = currentMode == 'pathedit'; //elem ? (elem.id && elem.id.indexOf('pathpointgrip') == 0) : false;
 				var menu_items = $('#cmenu_canvas li');
-				$('#selected_panel, #multiselected_panel, #g_panel, #rect_panel, #circle_panel,'+
-					'#ellipse_panel, #line_panel, #text_panel, #image_panel, #container_panel,'+
+				$('#selected_panel, #fmw_selected_panel, #multiselected_panel, #g_panel, #rect_panel,' +
+					'#circle_panel, #ellipse_panel, #line_panel, #text_panel, #image_panel, #container_panel,'+
 					' #use_panel, #a_panel').hide();
 				if (elem != null) {
 					var elname = elem.nodeName;
@@ -1584,6 +1584,7 @@ TODOS
 
 					if (!is_node && currentMode != 'pathedit') {
 						$('#selected_panel').show();
+						$('#fmw_selected_panel').show();
 
 						// Hide unnecessary FMW options
 						$('.fmw_advanced').hide();
