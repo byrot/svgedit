@@ -7,6 +7,8 @@ SVG-edit is a fast, web-based, javascript-driven SVG drawing editor that works i
 (Also available as a [download](https://github.com/SVG-Edit/svgedit/releases/download/svg-edit-2.8.1/svg-edit-2.8.1.zip) in [releases](https://github.com/SVG-Edit/svgedit/releases)).
 
 ## Recent news
+
+  * 2016-10-21 FM Scada widget selector v. 1
   * 2015-12-02 SVG-edit 2.8.1 was released.
   * 2015-11-24 SVG-edit 2.8 was released.
   * 2015-11-24 Code, issue tracking, and docs are being moved to github (previously [code.google.com](https://code.google.com/p/svg-edit)).
