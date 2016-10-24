@@ -3501,6 +3501,12 @@ TODOS
 				}
 			};
 
+			var clickForeign = function() {
+				if (toolButtonClick('#tool_foreign')) {
+					svgCanvas.setMode('foreignObject');
+				}
+			};
+
 			// Delete is a contextual tool that only appears in the ribbon if
 			// an element has been selected
 			var deleteSelected = function() {
@@ -4543,6 +4549,7 @@ TODOS
 					{sel: '#tool_circle', fn: clickCircle, evt: 'mouseup', parent: '#tools_ellipse', icon: 'circle'},
 					{sel: '#tool_fhellipse', fn: clickFHEllipse, evt: 'mouseup', parent: '#tools_ellipse', icon: 'fh_ellipse'},
 					{sel: '#tool_path', fn: clickPath, evt: 'click', key: ['P', true]},
+					{sel: '#tool_foreign', fn: clickForeign, evt: 'click', key: ['O', true]},
 					{sel: '#tool_text', fn: clickText, evt: 'click', key: ['T', true]},
 					{sel: '#tool_image', fn: clickImage, evt: 'mouseup'},
 					{sel: '#tool_zoom', fn: clickZoom, evt: 'mouseup', key: ['Z', true]},

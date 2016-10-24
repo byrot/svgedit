@@ -1382,6 +1382,23 @@ var getMouseTarget = this.getMouseTarget = function(evt) {
 					}
 				});
 				break;
+			case 'foreignObject':
+				started = true;
+				start_x = x;
+				start_y = y;
+				addSvgElementFromJson({
+					element: 'foreignObject',
+					curStyles: false,
+					attr: {
+						x: x,
+						y: y,
+						width: 0,
+						height: 0,
+						id: getNextId(),
+						opacity: cur_shape.opacity / 2
+					}
+				});
+				break;
 			case 'line':
 				started = true;
 				stroke_w = cur_shape.stroke_width == 0 ? 1 : cur_shape.stroke_width;
