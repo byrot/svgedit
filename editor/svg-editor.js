@@ -1608,18 +1608,19 @@ TODOS
 						if (elem.hasAttribute('data-fmw')) {
 							$('.fmw__' + elem.getAttribute('data-fmw')).show();
 						}
-						// Show part menu only if the object is not widget
-						if ($('#elem_fmw').val()) {
-							$('#fmwLabel_part').hide();
-						} else {
-							$('#fmwLabel_part').show();
-						}
+
+						// Show only widgets that can be attached to current element
+						$('#fmwLabel, .fmw_from_text, .fmw_from_g, .fmw_from_foreign').hide();
+						if (elname == 'text') $('.fmw_from_text').show();
+						if (elname == 'g') $('.fmw_from_g').show();
+						if (elname == 'foreignObject') $('.fmw_from_foreign').show();
+
 						// Show widget menu only if the object is not widget part
-						if ($('#elem_fmw_part').val()) {
-							$('#fmwLabel').hide();
-						} else {
-							$('#fmwLabel').show();
-						}
+						if ($('#elem_fmw_part').val()) $('#fmwLabel').hide();
+						else $('#fmwLabel').show();
+						// Show part menu only if the single object is not widget
+						if ($('#elem_fmw').val() || elname == 'g') $('#fmwLabel_part').hide();
+						else $('#fmwLabel_part').show();
 
 
 						// Elements in this array already have coord fields
@@ -4237,7 +4238,7 @@ TODOS
 
 			// Test for embedImage support (use timeout to not interfere with page load)
 			setTimeout(function() {
-				svgCanvas.embedImage('images/logo.png', function(datauri) {
+				svgCanvas.embedImage('data/images/logo.png', function(datauri) {
 					if (!datauri) {
 						// Disable option
 						$('#image_save_opts [value=embed]').attr('disabled', 'disabled');
