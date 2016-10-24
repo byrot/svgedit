@@ -469,13 +469,22 @@ by creating the following file and adding by calls to svgEditor.setConfig -->
 					<option value="time">Time</option>
 				</select>
 			</label>
+			<label id="fmwLabel_part" title="Part of compund FM widget">
+				<span>part:</span>
+				<select id="elem_fmw_part" class="attr_changer" data-attr="data-fmw-part" data-type="string">
+					<option value="">---</option>
+					<option value="tank-border">Tank - border</option>
+					<option value="tank-liquid">Tank - liquid mass</option>
+					<option value="tank-surface">Tank - liquid surface</option>
+				</select>
+			</label>
 			<label id="fmwLabel_channel" class="fmw_advanced fmw__button fmw__changelog fmw__numeric fmw__rotor fmw__semaphor fmw__stats fmw__switch fmw__tank" title="Source channel">
 				<span>source:</span>
-				<input id="elem_fmw_source" data-attr="data-fmw-source" data-type="string" size="10" type="text" placeholder="channel" class="attr_changer"/>
+				<input id="elem_fmw_source" data-attr="data-fmw-source" data-type="string" size="8" type="text" placeholder="channel" class="attr_changer"/>
 			</label>
 			<label id="fmwLabel_refresh" class="fmw_advanced fmw__button fmw__changelog fmw__numeric fmw__rotor fmw__semaphor fmw__stats fmw__switch fmw__tank fmw__time" title="Widget refresh interval in seconds">
 				<span>refresh:</span>
-				<input id="elem_fmw_refresh" data-attr="data-fmw-refresh" size="3" type="text" placeholder="0" class="attr_changer spin-button"/>
+				<input id="elem_fmw_refresh" data-attr="data-fmw-refresh" size="2" type="text" placeholder="0" class="attr_changer spin-button"/>
 			</label>
 			<label id="fmwLabel_button_text" class="fmw_advanced fmw__button" title="Button label when False,True">
 				<span>text:</span>
@@ -484,6 +493,26 @@ by creating the following file and adding by calls to svgEditor.setConfig -->
 			<label id="fmwLabel_button_fill" class="fmw_advanced fmw__button fmw__semaphor" title="Button colour when False,True">
 				<span>fill:</span>
 				<input id="elem_fmw_fill" data-attr="data-fmw-fill" data-type="string" size="10" type="text" placeholder="#rgbOFF,#rgbON" pattern="#[0-9a-f]{6},#[0-9a-f]{6}" class="attr_changer"/>
+			</label>
+			<label id="fmwLabel_range_min" class="fmw_advanced fmw__tank" title="Gauge range - lower bound">
+				<span>rng min:</span>
+				<input id="elem_fmw_range_min" data-attr="data-fmw-range-min" size="2" type="text" placeholder="0" class="attr_changer spin-button"/>
+			</label>
+			<label id="fmwLabel_range_max" class="fmw_advanced fmw__tank" title="GaugeAlert range - upper bound">
+				<span>rng max:</span>
+				<input id="elem_fmw_range_max" data-attr="data-fmw-range-max" size="2" type="text" placeholder="0" class="attr_changer spin-button"/>
+			</label>
+			<label id="fmwLabel_alert_min" class="fmw_advanced fmw__tank" title="Alert range - lower bound">
+				<span>alrt min:</span>
+				<input id="elem_fmw_alert_min" data-attr="data-fmw-alert-min" size="2" type="text" placeholder="0" class="attr_changer spin-button"/>
+			</label>
+			<label id="fmwLabel_alert_max" class="fmw_advanced fmw__tank" title="Alert range - upper bound">
+				<span>alrt max:</span>
+				<input id="elem_fmw_alert_max" data-attr="data-fmw-alert-max" size="2" type="text" placeholder="0" class="attr_changer spin-button"/>
+			</label>
+			<label id="fmwLabel_alert_fill" class="fmw_advanced fmw__tank" title="Liquid colour if value is out of alert range">
+				<span>alrt fill:</span>
+				<input id="elem_fmw_fill_alert" data-attr="data-fmw-fill-alert" data-type="string" size="6" type="text" placeholder="#rgb" pattern="#[0-9a-f]{6}" class="attr_changer"/>
 			</label>
 			<label id="fmwLabel_tolerance" class="fmw_advanced fmw__changelog" title="Minimal change of value to be displayed">
 				<span>tolerance:</span>

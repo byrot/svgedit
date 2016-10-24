@@ -1534,7 +1534,13 @@ TODOS
 					$('#elem_id').val(selectedElement.id);
 					$('#elem_class').val(selectedElement.getAttribute("class"));
 					$('#elem_fmw').val(selectedElement.getAttribute("data-fmw"));
+					$('#elem_fmw_part').val(selectedElement.getAttribute("data-fmw-part"));
 					$('#elem_fmw_text').val(selectedElement.getAttribute("data-fmw-text"));
+					$('#elem_fmw_range_min').val(selectedElement.getAttribute("data-fmw-range-min"));
+					$('#elem_fmw_range_max').val(selectedElement.getAttribute("data-fmw-range-max"));
+					$('#elem_fmw_alert_min').val(selectedElement.getAttribute("data-fmw-alert-min"));
+					$('#elem_fmw_alert_max').val(selectedElement.getAttribute("data-fmw-alert-max"));
+					$('#elem_fmw_fill_alert').val(selectedElement.getAttribute("data-fmw-fill-alert"));
 					$('#elem_fmw_fill').val(selectedElement.getAttribute("data-fmw-fill"));
 					$('#elem_fmw_source').val(selectedElement.getAttribute("data-fmw-source"));
 					$('#elem_fmw_refresh').val(selectedElement.getAttribute("data-fmw-refresh"));
@@ -1594,12 +1600,27 @@ TODOS
 						$('#selected_panel').show();
 						$('#fmw_selected_panel').show();
 
+
+						// INITIALIZE FMW MENU
 						// Hide unnecessary FMW options
 						$('.fmw_advanced').hide();
 						// Display advanced FMW options for the selected widget type
 						if (elem.hasAttribute('data-fmw')) {
 							$('.fmw__' + elem.getAttribute('data-fmw')).show();
 						}
+						// Show part menu only if the object is not widget
+						if ($('#elem_fmw').val()) {
+							$('#fmwLabel_part').hide();
+						} else {
+							$('#fmwLabel_part').show();
+						}
+						// Show widget menu only if the object is not widget part
+						if ($('#elem_fmw_part').val()) {
+							$('#fmwLabel').hide();
+						} else {
+							$('#fmwLabel').show();
+						}
+
 
 						// Elements in this array already have coord fields
 						if (['line', 'circle', 'ellipse'].indexOf(elname) >= 0) {
@@ -3046,11 +3067,26 @@ TODOS
 					}
 				}
 
+
+				// UPDATE FMW MENU
 				// display FMW advanced options
 				if (attr === 'data-fmw') {
 					$('.fmw_advanced').hide();
 					$('.fmw__' + val).show();
 				}
+				// Show part menu only if the object is not widget
+				if ($('#elem_fmw').val()) {
+					$('#fmwLabel_part').hide();
+				} else {
+					$('#fmwLabel_part').show();
+				}
+				// Show widget menu only if the object is not widget part
+				if ($('#elem_fmw_part').val()) {
+					$('#fmwLabel').hide();
+				} else {
+					$('#fmwLabel').show();
+				}
+
 
 				// if the user is changing the id, then de-select the element first
 				// change the ID, then re-select it with the new ID
@@ -4783,6 +4819,10 @@ TODOS
 			});
 
 			// init SpinButtons
+			$('#elem_fmw_range_min').SpinButton({ callback: function(){} });
+			$('#elem_fmw_range_max').SpinButton({ callback: function(){} });
+			$('#elem_fmw_alert_min').SpinButton({ callback: function(){} });
+			$('#elem_fmw_alert_max').SpinButton({ callback: function(){} });
 			$('#elem_fmw_refresh').SpinButton({ min: 0, max: 3600, callback: function(){} });
 			$('#elem_fmw_tolerance').SpinButton({ min: 0, max: 1000, callback: function(){} });
 			$('#elem_fmw_precision').SpinButton({ min: -10, max: 10, callback: function(){} });
